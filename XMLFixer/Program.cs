@@ -8,7 +8,7 @@ namespace XMLFixer
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Console.WriteLine("XML Fixer");
             using (Stream stream = File.OpenRead("C:/test/x.xml"))
             using (XmlObject xml = XmlParser.Parse(stream))
             {
@@ -20,6 +20,11 @@ namespace XMLFixer
                     XmlAttribute attr = kid.Attributes.First();
                     string attrName = attr.Value.ToString();
                     Console.WriteLine("Do you want to keep: "+attrName+" ?");
+                    var response = Console.ReadLine();
+                    if (response == "x")
+                    {
+                        Console.WriteLine("copy to new file");
+                    }
                 }
                 // node
                 //XmlNode child = root.Children.First();
